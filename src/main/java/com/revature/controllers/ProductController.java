@@ -1,5 +1,6 @@
 package com.revature.controllers;
 
+import com.revature.annotations.AuthRestriction;
 import com.revature.annotations.Authorized;
 import com.revature.dtos.ProductInfo;
 import com.revature.models.Product;
