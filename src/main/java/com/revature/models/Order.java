@@ -12,6 +12,7 @@ import java.util.List;
 @Entity
 @NoArgsConstructor
 @AllArgsConstructor
+@Table(name = "orders")
 public class Order {
 
     @Id
@@ -19,29 +20,30 @@ public class Order {
     private int id;
     private int userId;
 
-    @OneToMany
-    @JoinColumn(name = "order")
+    @OneToMany(cascade = CascadeType.ALL)
+    @JoinColumn(name = "orderId")
     private List<OrderItem> orderItems;
 
     private Date orderDate;
     private int total;
     private int count;
 
+
+
+
     @Entity
-    @Table(name ="order_item")
     @AllArgsConstructor
     @NoArgsConstructor
     @Data
+    @Table(name = "order_items")
     public static class OrderItem {
         @Id
         @GeneratedValue(strategy = GenerationType.IDENTITY)
-        private int itemId;
+        private int id;
 
-        @ManyToOne
-        private Order order;
-        @ManyToOne
-        @JoinColumn(name = "id")
-        private Product product;
+        private int orderId;
+
+        private int productId;
         private int quantity;
     }
 }

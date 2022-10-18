@@ -46,3 +46,24 @@ INSERT INTO users (id, email, password, first_name, last_name) VALUES (
     'Test',
     'User'
 );
+
+INSERT INTO orders (id, user_id, order_date, total, count) VALUES (
+    1,
+    1,
+    '2008-11-11',
+    25.00,
+    3
+);
+
+INSERT INTO order_items (id, order_id, product_id, quantity) VALUES (
+    1,
+    1,
+    1,
+    1
+),
+(
+    2,
+    1,
+    3,
+    2
+)
