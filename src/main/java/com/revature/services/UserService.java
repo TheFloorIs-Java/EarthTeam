@@ -22,4 +22,13 @@ public class UserService {
     public User save(User user) {
         return userRepository.save(user);
     }
+
+    /**
+     * updateUser(User user)
+     * To update information leveraging the Jpa Repository
+     */
+
+    public User updateUser(User user) {
+        return userRepository.save(user);
+    }
 }
