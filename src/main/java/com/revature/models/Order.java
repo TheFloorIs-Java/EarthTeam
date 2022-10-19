@@ -43,7 +43,9 @@ public class Order {
 
         private int orderId;
 
-        private int productId;
+        @ManyToOne
+        @JoinColumn(name = "product_id")
+        private Product product;
         private int quantity;
     }
 }
