@@ -1,5 +1,6 @@
 package com.revature.services;
 
+import com.revature.dtos.UserRequest;
 import com.revature.models.User;
 import com.revature.repositories.UserRepository;
 import org.springframework.stereotype.Service;
@@ -28,7 +29,10 @@ public class UserService {
      * To update information leveraging the Jpa Repository
      */
 
-    public User updateUser(User user) {
+    public User updateUser(int id, UserRequest userRequest) {
+        User user = userRepository.getById(id);
+        user.setEmail(userRequest.getEmail());
+        user.setFirstName(userRequest.getFirstName());
         return userRepository.save(user);
     }
 }

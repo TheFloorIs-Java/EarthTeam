@@ -1,11 +1,10 @@
 package com.revature.controllers;
 
 import com.revature.annotations.Authorized;
+import com.revature.dtos.UserRequest;
 import com.revature.models.User;
 import com.revature.services.UserService;
 import org.springframework.web.bind.annotation.*;
-
-import java.util.Optional;
 
 @RestController
 @RequestMapping("/api/user")
@@ -21,16 +20,17 @@ public class UserController {
     /**
      * updateUserById(int id)
      * To complete a PUT request for updating User Information in DB
+     * Utilizing a DTO to hold our data to be passed into our Request Body, this allows for us to have more control
+     * in what the user is allowed to update
      *
-     * @param id - unique primary key for the User DB
-     * @param user - entering every parameter in the User Model (int id, String email, String password, String
-     *             firstName, String lastName)
+     * @param id   - unique primary key for the User DB
+     * @param userRequest - entering the parameters we have set in the UserRequest (String email, String firstName)
      * @return - Updated User
      */
 
     @Authorized
-    @PutMapping()
-    public User updateUser (@RequestBody User user){
-        return userService.updateUser(user);
+    @PutMapping("/{id}")
+    public User updateUser(@PathVariable int id, @RequestBody UserRequest userRequest) {
+        return userService.updateUser(id, userRequest);
     }
 }
