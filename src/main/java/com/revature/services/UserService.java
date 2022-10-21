@@ -25,7 +25,7 @@ public class UserService {
     }
 
     /**
-     * updateUser(User user)
+     * updateUser(UserRequest userRequest)
      * To update information leveraging the Jpa Repository
      */
 
