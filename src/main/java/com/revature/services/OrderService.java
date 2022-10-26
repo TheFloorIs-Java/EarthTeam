@@ -16,14 +16,31 @@ public class OrderService {
         this.orderRepository = orderRepository;
     }
 
+    /**
+     * Finds all orders with a particular userId on the database
+     *
+     * @param userId the id of the user
+     * @return list of all orders for the user
+     */
     public List<Order> findByUserId(int userId) {
         return orderRepository.findOrderByUserId(userId);
     }
 
+    /**
+     * Saves an order object to the database
+     *
+     * @param order the order to save
+     * @return the order that was successfully saved
+     */
     public Order saveOrder(Order order) {
         return orderRepository.save(order);
     }
 
+    /**
+     * Finds all orders on the database
+     *
+     * @return a list of all orders
+     */
     public List<Order> findAll() {
         return orderRepository.findAll();
     }

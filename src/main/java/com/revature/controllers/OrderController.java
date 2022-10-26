@@ -22,16 +22,37 @@ public class OrderController {
 
     public OrderController(OrderService orderService) {this.orderService = orderService;}
 
+
+    /**
+     * Returns all orders from the database
+     *
+     * @Author Matt Hill
+     * @return list of all orders
+     */
     @GetMapping("/")
     public ResponseEntity<List<Order>> getAllOrders() {
         return ResponseEntity.ok(orderService.findAll());
     }
 
+    /**
+     * Returns all orders for a particular user from the database
+     *
+     * @param userId the id of the user
+     * @Author Matt Hill
+     * @return list of all orders for user with userId
+     */
     @GetMapping("/{userId}")
     public ResponseEntity<List<Order>> getOrdersByUserId(@PathVariable("userId") int userId) {
         return ResponseEntity.ok(orderService.findByUserId(userId));
     }
 
+    /**
+     * Posts an order to the database
+     *
+     * @param order the order to post
+     * @Author Matt Hill
+     * @return the order that was successfully posted
+     */
     @PostMapping
     public ResponseEntity<Order> postOrder(@RequestBody Order order) {
         return ResponseEntity.ok(orderService.saveOrder(order));

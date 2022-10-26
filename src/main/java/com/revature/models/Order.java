@@ -8,6 +8,11 @@ import javax.persistence.*;
 import java.util.Date;
 import java.util.List;
 
+
+/**
+ * represents an order. Contains inner class that represents a particular item within that order.
+ * @author Matt Hill
+ */
 @Data
 @Entity
 @NoArgsConstructor
@@ -30,7 +35,10 @@ public class Order {
 
 
 
-
+    /**
+     * inner class that represents a particular item within the order.
+     * @author Matt Hill
+     */
     @Entity
     @AllArgsConstructor
     @NoArgsConstructor
