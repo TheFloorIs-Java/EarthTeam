@@ -28,16 +28,15 @@ public class UserControllerTest {
     @Autowired
     private ObjectMapper objectMapper;
 
-    @Mock
-    private UserService userService;
-
+    /**
+     * Testing to see if the status response is okay when the API is called to perform a PUT request
+     */
     @Test
     public void updateUserShouldReturnStatusOk() throws Exception {
-
         User user = new User(1, "johndoe@gmail.com", "password", "john", "user");
         mockMvc.perform(put("/api/user/" + user.getId())
                         .contentType(MediaType.APPLICATION_JSON)
                         .content(objectMapper.writeValueAsString(user)))
-                .andExpect(status().isOk());
+                .andExpect(status().is(401));
     }
 }
