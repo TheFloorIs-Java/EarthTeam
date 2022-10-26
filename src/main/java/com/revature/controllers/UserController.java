@@ -21,7 +21,7 @@ public class UserController {
      * updateUserById(int id)
      * To complete a PUT request for updating User Information in DB
      * Utilizing a DTO to hold our data to be passed into our Request Body, this allows for us to have more control
-     * in what the user is allowed to update
+     * over what the user is allowed to update
      *
      * @param id   - unique primary key for the User DB
      * @param userRequest - entering the parameters we have set in the UserRequest (String email, String firstName)
