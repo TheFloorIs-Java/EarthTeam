@@ -29,14 +29,16 @@ public class UserControllerTest {
     private ObjectMapper objectMapper;
 
     /**
-     * Testing to see if the status response is okay when the API is called to perform a PUT request
+     * Testing to see if the status response is okay when the API is called to perform a PUT request - currently is
+     * not working due to the @Authorized annotation in our controller - it requires our User to be Logged In
      */
+
     @Test
     public void updateUserShouldReturnStatusOk() throws Exception {
         User user = new User(1, "johndoe@gmail.com", "password", "john", "user");
         mockMvc.perform(put("/api/user/" + user.getId())
                         .contentType(MediaType.APPLICATION_JSON)
                         .content(objectMapper.writeValueAsString(user)))
-                .andExpect(status().is(401));
+                .andExpect(status().isOk());
     }
 }
